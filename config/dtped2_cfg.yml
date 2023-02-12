@@ -1,19 +1,14 @@
 num_frames: &num_frames 16
 # dataPath: 'E:/dataset/UCSD/UCSDped1/video/label/'
+
+#set as your own path
 #ped2 dataset
 train_dataPath: 'E:/dataset/UCSD/UCSDped2/label/train.csv'
 val_dataPath: 'E:/dataset/UCSD/UCSDped2/label/test.csv'
 tst_dataPath: 'E:/dataset/UCSD/UCSDped2/label/test.csv'
 
+#background for ped2 dataset
 bgPth: 'dataset/bg/ped2Bg.pt'
-#color images, avenue dataset for patch
-#mean: [0.1004, 0.0956, 0.0938]
-#std: [0.2121, 0.2025, 0.2027]
-
-
-#color image, ped2 dataset for images without bg shortSide_size:240 crop_size: [3, 8, 40, 40]
-#mean: [0.3974, 0.3828, 0.3863]
-#std: [0.2570, 0.2439, 0.2563]
 
 #removing the background 48*48
 #mean: [0.0310, 0.0310, 0.0310]

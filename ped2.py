@@ -28,7 +28,6 @@ from trainer.mult_ae_td_one_trainer import MulitAeTdOneTrainer
 import pytorch_lightning as pl
 pl.seed_everything(999999, workers=True)
 def ped2Train(svPth='data/result/ped2_train.pt'):
-    pl.seed_everything(999999, workers=True)
     args, train_cfg, dt_cfg = utils.initial_params(train_cfg='config/ped2_train_cfg.yaml', dt_cfg='config/dtped2_cfg.yml')
     # model=AeMultiOut(input_shape=train_cfg['input_shape'], code_length=train_cfg['code_length'])
     # train_cfg['model'] = model
@@ -36,24 +35,22 @@ def ped2Train(svPth='data/result/ped2_train.pt'):
                         trainer = MulitAeTdOneTrainer,
                         sv_auc_pth='data/ped2_val_auc.pt')
 
-    torch.save(res, svPth)
+    # torch.save(res, svPth)
 
 def ped2Tst():
-    # AeTdOneTrainerModel.load
+    # AeTdOneTrainerModel.load;
     model = MulitAeTdOneTrainer.load_from_checkpoint(
-        checkpoint_path="data/model/ped2_aetdsvdd.ckpt",
-        hparams_file="data/model/ped2_aetdsvdd_hparams.yaml",
+        checkpoint_path="data/model/ped2.ckpt",
+        hparams_file="config/ped2_hparams.yaml",
         map_location=None,
     )
-    trainer = MulitAeTdOneTrainer()
-    trainer.test(model)
+    trainer = pl.Trainer()
+    trainer.test(model, dataloaders=None)
 
 
 if __name__=='__main__':
     st_time=time.time()
-    ped2Train()
-
-    # res = torch.load('data/result/ped2_params.pt')
+    ped2Tst()
     end_time = time.time()
     print(f'run time : {(end_time-st_time)/60}m')
 
