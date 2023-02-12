@@ -1,0 +1,34 @@
+aeLsAlpha: 20
+aeScoreAlpha:
+- 1
+
+aeWarmEpochs: 1
+batch_size: 5
+cntNum: 1
+cnters: null
+code_length: 64
+gdLsAlpha: 1
+
+input_shape:
+- 3
+- 8
+- 40
+- 40
+lr: 0.0001
+lr_decay_min_lr: 1.0e-05
+lr_decay_rate: 0.5
+lr_decay_steps: 80
+lr_scheduler: step
+max_epochs: 500
+nu: 0.01
+objFlg: soft
+oneLsAlpha: 1
+oneScoreAlpha:
+- -2
+
+tgLsAlpha: 10
+tgScoreAlpha:
+- 8
+
+updtR_epoches: 15
+weight_decay: 0.0001
